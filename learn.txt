@@ -1,0 +1,11 @@
+const[goods, setGoods] = useState([])
+    useEffect(() => {
+        axios('/api/v1/goods')
+            .then((response) => {
+               setGoods(response.data)
+                //console.log(response.data)
+
+            })
+            .catch((err) => console.log(err))
+
+    }, [])
