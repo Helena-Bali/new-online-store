@@ -40,5 +40,4 @@ if (process.env.NODE_ENV === 'production&&') {
     })
 }
 
-
 server.listen(PORT,() => {console.log(`App is running on port ${PORT}`)})
