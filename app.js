@@ -34,8 +34,8 @@ server.get('/api/v1/rates', async (req, res) => {
 } )
 
 if (process.env.NODE_ENV === 'production&&') {
-    server.use('/', express.static(path.join(__dirname), 'client', 'build'))
-    server.get('*', (req, res) => {
+    server.use(express.static(path.join(__dirname), 'client', 'build'))
+    server.get('/', (req, res) => {
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
