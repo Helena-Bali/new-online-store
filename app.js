@@ -3,7 +3,7 @@ const path = require ('path')
 const cors = require ('cors')
 const cookieParser = require ('cookie-parser')
 const config = require('config')
-//const axios = require('axios')
+const axios = require('axios')
 const { readFile, writeFile, unlink} = require('fs').promises
 
 const server = express()
@@ -25,6 +25,13 @@ server.get('/api/v1/goods', async (req,res) => {
         .catch(() => ({message: 'There is no goods here'}))
     res.json(readGoods)
 })
+
+server.get('/api/v1/rates', async (req, res) => {
+    await axios('https://api.currencyapi.com/v3/latest?apikey=Kmcg16vIZioibH63W2Mtb9NjqWccCPO4kIWP6wFG',
+        {headers: { "Accept-Encoding": "gzip,deflate,compress" }})
+        .then(response => res.json(response.data.data))
+        .catch(err => next(err))
+} )
 
 
 server.listen(PORT,() => {console.log(`App is running on port ${PORT}`)})
