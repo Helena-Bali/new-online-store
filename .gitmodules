@@ -1,4 +1,3 @@
 [submodule "client"]
 	path = client
-	url = https://github.com/Helena-Bali/client
-; 	git@github.com:Helena-Bali/client.git
+	url = git@github.com:Helena-Bali/client.git
